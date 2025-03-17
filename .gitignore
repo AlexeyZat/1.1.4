@@ -1,20 +1,48 @@
-.idea/
-
-
-target/
 *.class
+*.jar
+*.war
+*.ear
 
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+bin/
+out/
+
+/target/
+/build/
+/dist/
 
 *.log
+*.log.*
+logs/
 
+.env
+.env.local
 
-*.env
-application.properties
-application.yml
-
-
-*.sql
-
+*.tmp
+*.temp
 
 .DS_Store
 Thumbs.db
+
+**/target/
+**/build/
+**/node_modules/
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+/test-results/
+/test-output/
+/coverage/
+
+*.orig
+*.bak
+*.rej

@@ -90,6 +90,7 @@ public class UserDaoHibernateImpl implements UserDao {
         try (Session session = Util.getSessionFactory().openSession()) {
             users = session.createCriteria(User.class).list();
         } catch (HibernateException e) {
+            e.printStackTrace();
 
         }
         return users;
