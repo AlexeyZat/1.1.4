@@ -15,7 +15,6 @@ public class UserDaoHibernateImpl implements UserDao {
     private SessionFactory sessionFactory;
 
 
-
     public UserDaoHibernateImpl() {
 
     }
@@ -26,12 +25,7 @@ public class UserDaoHibernateImpl implements UserDao {
         Transaction tx = null;
         try (Session session = Util.getSessionFactory().openSession()) {
             tx = session.beginTransaction();
-            String sql = "CREATE TABLE IF NOT EXISTS users ("
-                    + "id INT PRIMARY KEY AUTO_INCREMENT, "
-                    + "name VARCHAR(100) NOT NULL, "
-                    + "lastName VARCHAR(100) NOT NULL,"
-                    + "age INT NOT NULL"
-                    + ")";
+            String sql = "CREATE TABLE IF NOT EXISTS users (" + "id INT PRIMARY KEY AUTO_INCREMENT, " + "name VARCHAR(100) NOT NULL, " + "lastName VARCHAR(100) NOT NULL," + "age INT NOT NULL" + ")";
             session.createSQLQuery(sql).executeUpdate();
             tx.commit();
         } catch (HibernateException e) {
@@ -41,6 +35,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
 
     }
+
     @Override
     public void dropUsersTable() {
         Transaction tx = null;
@@ -56,6 +51,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
 
     }
+
     @Override
     public void saveUser(String name, String lastName, byte age) {
         Transaction tx = null;
@@ -73,6 +69,7 @@ public class UserDaoHibernateImpl implements UserDao {
             }
         }
     }
+
     @Override
     public void removeUserById(long id) {
         Transaction tx = null;
@@ -92,8 +89,7 @@ public class UserDaoHibernateImpl implements UserDao {
         List<User> users = new ArrayList<User>();
         try (Session session = Util.getSessionFactory().openSession()) {
             users = session.createCriteria(User.class).list();
-        }
-        catch (HibernateException e) {
+        } catch (HibernateException e) {
 
         }
         return users;
